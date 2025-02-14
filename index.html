@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>X認証</title>
+    <title>Twitter OAuth Callback</title>
+    <script>
+        // URLパラメータからトークン情報を取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const oauthToken = urlParams.get('oauth_token');
+        const oauthVerifier = urlParams.get('oauth_verifier');
+
+        // トークン情報を表示
+        if (oauthToken && oauthVerifier) {
+            document.write("<h1>認証が成功しました！</h1>");
+            document.write("<p>以下が取得した情報です:</p>");
+            document.write("<p><strong>OAuth Token:</strong> " + oauthToken + "</p>");
+            document.write("<p><strong>OAuth Verifier:</strong> " + oauthVerifier + "</p>");
+        } else {
+            document.write("<h1>認証に失敗しました</h1>");
+        }
+    </script>
 </head>
 <body>
-    <h1>X認証が完了しました。</h1>
-    <p>このページはリダイレクト後に表示されます</p>
 </body>
 </html>
