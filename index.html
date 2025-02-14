@@ -11,9 +11,9 @@
         // トークン情報を表示
         if (oauthToken && oauthVerifier) {
             document.write("<h1>認証が成功しました！</h1>");
-            document.write("<p>以下が取得した情報です:</p>");
-            document.write("<p><strong>OAuth Token:</strong> " + oauthToken + "</p>");
-            document.write("<p><strong>OAuth Verifier:</strong> " + oauthVerifier + "</p>");
+            document.write("<p>以下のコードをコンソールに入力して下さい</p>");
+            #document.write("<p><strong>OAuth Token:</strong> " + oauthToken + "</p>");
+            document.write("<p>" +oauthVerifier + "</p>");
         } else {
             document.write("<h1>認証に失敗しました</h1>");
         }
