@@ -2,6 +2,11 @@
 <html>
 <head>
     <title>Twitter OAuth Callback</title>
+</head>
+<body>
+    <div id="content">
+        <h1>認証処理中...</h1>
+    </div>
     <script>
         // URLパラメータからトークン情報を取得
         const urlParams = new URLSearchParams(window.location.search);
@@ -9,16 +14,19 @@
         const oauthVerifier = urlParams.get('oauth_verifier');
 
         // トークン情報を表示
+        const contentDiv = document.getElementById('content');
         if (oauthToken && oauthVerifier) {
-            document.write("<h1>認証が成功しました！</h1>");
-            document.write("<p>以下のコードをコンソールに入力して下さい</p>");
-            #document.write("<p><strong>OAuth Token:</strong> " + oauthToken + "</p>");
-            document.write("<p>" +oauthVerifier + "</p>");
+            contentDiv.innerHTML = `
+                <h1>認証が成功しました！</h1>
+                <p>以下のコードをコピーしてください:</p>
+                <p><strong>OAuth Verifier:</strong> ${oauthVerifier}</p>
+            `;
         } else {
-            document.write("<h1>認証に失敗しました</h1>");
+            contentDiv.innerHTML = `
+                <h1>認証に失敗しました</h1>
+                <p>もう一度お試しください。</p>
+            `;
         }
     </script>
-</head>
-<body>
 </body>
 </html>
